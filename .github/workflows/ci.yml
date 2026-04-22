@@ -15,7 +15,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
+          # Disabled automatic pip cache lookup because some student submissions
+          # put project files in a nested directory which can make the cache
+          # action fail when it cannot find requirements.txt or pyproject.toml.
+          # Remove or re-enable if your repo has a top-level requirements file.
 
       - name: Install dependencies
         run: |

@@ -12,17 +12,17 @@ Bài lab bám theo luồng hệ thống trong file hướng dẫn: Sender tạo 
 - Khi demo, giảng viên có thể hỏi chéo bất kỳ thành viên nào về **sender**, **receiver**, **DES-CBC**, **padding**, **threat model** và **ethics**.
 
 ## Team members
-- **Thành viên 1**: Nguyễn Văn A - MSSV: 12345678
-- **Thành viên 2**: Trần Thị B - MSSV: 87654321
+- **Thành viên 1**: Trương Triệu Việt Hoàng - MSSV: 1871020 
+- **Thành viên 2**: Trần Minh Quân - MSSV: 1871020469 
 ## Task division
 - **Thành viên 1 phụ trách chính**: Triển khai và kiểm thử Sender, viết unit test liên quan tới sender và padding.
 - **Thành viên 2 phụ trách chính**: Triển khai Receiver, tài liệu threat model, thu thập logs.
 - **Phần làm chung**: Viết des_socket_utils, tích hợp test end-to-end, chuẩn bị báo cáo và peer-review.
 
 ## Demo roles
-- **Bạn nào demo Sender / gói tin / log gửi**: Nguyễn Văn A
-- **Bạn nào demo Receiver / giải mã / log nhận**: Trần Thị B
-- **Cả hai cùng trả lời threat model và ethics**: Nguyễn Văn A & Trần Thị B
+- **Bạn nào demo Sender / gói tin / log gửi**: Trương Triệu Việt Hoàng
+- **Bạn nào demo Receiver / giải mã / log nhận**: Trần Minh Quân
+- **Cả hai cùng trả lời threat model và ethics**: Trương Triệu Việt Hoàng & Trần Minh Quân
 
 ## Mục tiêu học tập
 - Hiểu luồng hoạt động của hệ thống Sender/Receiver qua TCP socket.

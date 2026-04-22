@@ -3,6 +3,8 @@
 ## Thông tin nhóm
 - Thành viên 1: TODO_STUDENT
 - Thành viên 2: TODO_STUDENT
+ - Thành viên 1: Nguyễn Văn A - 12345678
+ - Thành viên 2: Trần Thị B - 87654321
 
 ## Assets
 TODO_STUDENT: Liệt kê tài sản cần bảo vệ.

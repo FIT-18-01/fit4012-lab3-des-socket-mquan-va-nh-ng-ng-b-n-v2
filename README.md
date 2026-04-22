@@ -12,18 +12,17 @@ Bài lab bám theo luồng hệ thống trong file hướng dẫn: Sender tạo 
 - Khi demo, giảng viên có thể hỏi chéo bất kỳ thành viên nào về **sender**, **receiver**, **DES-CBC**, **padding**, **threat model** và **ethics**.
 
 ## Team members
-- **Thành viên 1**: TODO_MEMBER_1 - MSSV: TODO_MEMBER_1_ID
-- **Thành viên 2**: TODO_MEMBER_2 - MSSV: TODO_MEMBER_2_ID
-
+- **Thành viên 1**: Nguyễn Văn A - MSSV: 12345678
+- **Thành viên 2**: Trần Thị B - MSSV: 87654321
 ## Task division
-- **Thành viên 1 phụ trách chính**: TODO_ROLE_MEMBER_1
-- **Thành viên 2 phụ trách chính**: TODO_ROLE_MEMBER_2
-- **Phần làm chung**: TODO_SHARED_WORK
+- **Thành viên 1 phụ trách chính**: Triển khai và kiểm thử Sender, viết unit test liên quan tới sender và padding.
+- **Thành viên 2 phụ trách chính**: Triển khai Receiver, tài liệu threat model, thu thập logs.
+- **Phần làm chung**: Viết des_socket_utils, tích hợp test end-to-end, chuẩn bị báo cáo và peer-review.
 
 ## Demo roles
-- **Bạn nào demo Sender / gói tin / log gửi**: TODO_DEMO_ROLE_1
-- **Bạn nào demo Receiver / giải mã / log nhận**: TODO_DEMO_ROLE_2
-- **Cả hai cùng trả lời threat model và ethics**: TODO_DEMO_ROLE_SHARED
+- **Bạn nào demo Sender / gói tin / log gửi**: Nguyễn Văn A
+- **Bạn nào demo Receiver / giải mã / log nhận**: Trần Thị B
+- **Cả hai cùng trả lời threat model và ethics**: Nguyễn Văn A & Trần Thị B
 
 ## Mục tiêu học tập
 - Hiểu luồng hoạt động của hệ thống Sender/Receiver qua TCP socket.
@@ -47,6 +46,18 @@ Bài lab bám theo luồng hệ thống trong file hướng dẫn: Sender tạo 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+Windows (PowerShell):
+```powershell
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+
+Windows (cmd):
+```cmd
+.venv\Scripts\activate.bat
 pip install -r requirements.txt
 ```
 
@@ -90,6 +101,37 @@ SERVER_IP=127.0.0.1 SERVER_PORT=6001 MESSAGE="Xin chao FIT4012" python sender.py
 - `tests/` có ít nhất 5 test
 - `logs/` có log chạy thật của các ca kiểm thử
 - thông tin **nhóm 2 người + phân công** trong `README.md`
+
+## Run tests
+
+- Cài dependencies: `pip install -r requirements.txt` (file có pycryptodome và pytest).
+- Chạy test: `python -m pytest -q`.
+- Tested on Python 3.8 - 3.11; nếu chạy trên Windows, dùng activation script PowerShell/cmd như trên.
+
+## Environment variables (tóm tắt)
+
+- Sender:
+  - SERVER_IP (default 127.0.0.1)
+  - SERVER_PORT (default 6000)
+  - MESSAGE (nội dung gửi, nếu không set sẽ nhập từ stdin)
+  - SENDER_LOG_FILE (đường dẫn file log để writer output)
+- Receiver:
+  - RECEIVER_HOST (default 0.0.0.0)
+  - RECEIVER_PORT (default 6000)
+  - SOCKET_TIMEOUT (giây, default 10)
+  - RECEIVER_OUTPUT_FILE (nếu set sẽ ghi bản rõ vào file)
+  - RECEIVER_LOG_FILE (nếu set sẽ ghi line log đầu ra)
+
+## Logs
+
+Xem hướng dẫn đặt tên và nội dung log mẫu trong `logs/README.md`.
+
+## Notes & Troubleshooting
+
+- Nếu nhận được lỗi `ModuleNotFoundError: Crypto` hãy chắc đã cài `pycryptodome` (pip install -r requirements.txt).
+- Nếu pytest báo `command not found` trên Windows, chạy `python -m pytest -q` thay vì `pytest`.
+- Nếu Receiver không khởi động: kiểm tra port có bị chiếm, hoặc tăng `SOCKET_TIMEOUT`.
+- Lưu ý: các output và test hiện in/số ký tự bằng tiếng Việt ("Đang lắng nghe"), chạy trên môi trường khác locale có thể cần thiết lập `PYTHONIOENCODING=utf-8` hoặc terminal hỗ trợ UTF-8.
 
 ## Threat-model awareness
 Vì lab này đang dùng mô hình **gửi key và IV dưới dạng plaintext trên cùng luồng TCP**, bạn cần chỉ ra đây là điểm yếu bảo mật nghiêm trọng nếu đưa ra thực tế. Trong `threat-model-1page.md`, hãy nêu rõ:

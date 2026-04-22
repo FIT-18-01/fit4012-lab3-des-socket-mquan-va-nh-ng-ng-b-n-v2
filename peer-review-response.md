@@ -3,6 +3,8 @@
 ## Thông tin nhóm
 - Thành viên 1: TODO_STUDENT
 - Thành viên 2: TODO_STUDENT
+ - Thành viên 1: Nguyễn Văn A - 12345678
+ - Thành viên 2: Trần Thị B - 87654321
 
 ## Thành viên 1 góp ý cho thành viên 2
 TODO_STUDENT: Góp ý ngắn gọn về phần việc, chất lượng code, test, hoặc tài liệu.
